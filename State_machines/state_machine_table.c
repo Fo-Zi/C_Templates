@@ -24,12 +24,12 @@
 typedef enum State{ 
 	STATE_1, 
 	STATE_2, 
-} State;
+}State;
 
-typedef enum {
+typedef enum Event {
 	EVENT1,
 	EVENT2,
-} Event;
+}Event;
 
 typedef State state_handler(Event last_event);
 
@@ -45,7 +45,7 @@ State handle_state (State current_state , Event last_event){
 	return state_handlers_table [ current_state  ](last_event);
 }
 
-void main (){
+int main (){
 	State current_state = STATE_1;
 	while(1){
 		last_event = update_event();
